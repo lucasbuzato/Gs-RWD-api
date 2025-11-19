@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+    --font-Orbitron: "Orbitron", sans-serif;
+    --color-Roxo: #7B3FE4;
+    --color-Roxo-Escuro: #4E1498;
+    --color-Roxo-Claro: #B497FF;
+    --color-Preto-Suave: #202124;
+    --color-Azul-Claro: #33C1FF;
+    --color-Verde: #00D26A;
+    --color-Cinza: #D9D9D9;
+}
+
+.hero {
+    background-image: url('./imgs/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Remove totalmente a barra de scroll */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE e Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Faz o conteúdo ocupar o espaço da scrollbar escondida */
+.scroll-fill {
+    width: calc(100% + var(--scrollbar-width, 0px));
+    margin-right: calc(var(--scrollbar-width, 0px) * -1);
+}
+
+.cut-top-left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    /* tamanho do corte */
+    height: 40px;
+    border-top-left-radius: 1rem;
+    /* igual ao rounded-2xl */
+    background: white;
+    /* cor do fundo que cria o corte */
+}
+
+.cut-top-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-top-right-radius: 1rem;
+    background: white;
+}
+
+.cut-bottom-left::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom-left-radius: 1rem;
+    background: white;
+}
+
+.cut-bottom-right::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom-right-radius: 1rem;
+    background: white;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.bento-card-with-lines {
+    position: relative;
+    overflow: visible;
+    /* Permite que o pseudo-elemento se estenda para a borda */
+    z-index: 10;
+    /* Garante que o card fique por cima */
+}
+
+/* Variáveis para controle de estilo */
+:root {
+    --line-color: #AAAAAA;
+    /* Cinza claro mais escuro para o padrão (SM) */
+    --line-thickness: 4px;
+    /* Espessura base para SM */
+    --line-offset: 0px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Estilos Mobile-First (SM - Padrão) */
+/* ---------------------------------------------------------------------- */
+
+/* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
+.card-1-lines::before {
+    /* Superior Esquerdo */
+    content: '';
+    position: absolute;
+    top: var(--line-offset);
+    left: var(--line-offset);
+    width: 50px;
+    height: 70px;
+    border-bottom: var(--line-thickness) solid var(--line-color);
+    border-right: var(--line-thickness) solid var(--line-color);
+    border-bottom-right-radius: 2rem;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+/* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
+.card-3-lines::before {
+    /* Superior Direito */
+    content: '';
+    position: absolute;
+    top: var(--line-offset);
+    right: var(--line-offset);
+    width: 70px;
+    height: 70px;
+    border-bottom: var(--line-thickness) solid var(--line-color);
+    border-left: var(--line-thickness) solid var(--line-color);
+    border-bottom-left-radius: 2rem;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.card-3-lines::after {
+    /* Inferior Esquerdo */
+    content: '';
+    position: absolute;
+    bottom: var(--line-offset);
+    left: var(--line-offset);
+    width: 70px;
+    height: 70px;
+    border-top: var(--line-thickness) solid var(--line-color);
+    border-right: var(--line-thickness) solid var(--line-color);
+    border-top-right-radius: 2rem;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
+.card-4-lines::after {
+    /* Inferior Direito */
+    content: '';
+    position: absolute;
+    bottom: var(--line-offset);
+    right: var(--line-offset);
+    width: 100px;
+    height: 40px;
+    border-top: var(--line-thickness) solid var(--line-color);
+    border-left: var(--line-thickness) solid var(--line-color);
+    border-top-left-radius: 2rem;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
+.card-5-lines::after {
+    /* Inferior Esquerdo */
+    content: '';
+    position: absolute;
+    top: var(--line-offset);
+    right: var(--line-offset);
+    width: 50px;
+    height: 50px;
+    border-bottom: var(--line-thickness) solid var(--line-color);
+    border-left: var(--line-thickness) solid var(--line-color);
+    border-bottom-left-radius: 2rem;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Ajustes para telas Médias (MD: 768px) */
+/* ---------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    :root {
+        --line-thickness: 5px;
+        --line-color: #AAAAAA;
+        /* Cinza para MD */
+    }
+
+    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
+    .card-1-lines::before,
+    .card-1-lines::after {
+        width: 70px;
+        height: 100px;
+    }
+
+    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
+    .card-3-lines::before,
+    .card-3-lines::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
+    .card-4-lines::after {
+        width: 150px;
+        height: 50px;
+    }
+
+    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
+    .card-5-lines::after {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Ajustes para telas Grandes (LG: 1024px) */
+/* ---------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    :root {
+        --line-thickness: 6px;
+        --line-color: #AAAAAA;
+        /* Cinza para LG */
+    }
+
+    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
+    .card-1-lines::before,
+    .card-1-lines::after {
+        width: 80px;
+        height: 120px;
+    }
+
+    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
+    .card-3-lines::before,
+    .card-3-lines::after {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
+    .card-4-lines::after {
+        width: 200px;
+        height: 60px;
+    }
+
+    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
+    .card-5-lines::after {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Ajustes para telas Extra Grandes (XL: 1280px) */
+/* ---------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+    :root {
+        --line-thickness: 7px;
+        --line-color: #AAAAAA;
+        /* Branco para XL (o normal) */
+    }
+
+    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
+    .card-1-lines::before,
+    .card-1-lines::after {
+        width: 100px;
+        height: 170px;
+    }
+
+    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
+    .card-3-lines::before,
+    .card-3-lines::after {
+        width: 150px;
+        height: 175px;
+    }
+
+    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
+    .card-4-lines::after {
+        width: 250px;
+        height: 75px;
+    }
+
+    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
+    .card-5-lines::after {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.flip-card {
+    perspective: 1200px;
+}
+
+.flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.flip-front,
+.flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Borda translúcida igual ao estilo do Figma */
+.card-box {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+a.ativo {
+    background-color: #4c1d95 !important;
+    /* mais escuro */
+    transform: scale(0.97);
+}
