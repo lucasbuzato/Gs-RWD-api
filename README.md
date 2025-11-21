@@ -1,10 +1,11 @@
 # Gs-RWD-api
 
-cd Gs-RWD-api
-cd backend
-npm install
-node server.js
-Abrir o index.html com o Live Server na pasta Front-End
+# Passo a Passo para Funcionamento
+- cd Gs-RWD-api
+- cd backend
+- npm install
+- node server.js
+- Abrir o index.html com o Live Server na pasta Front-End
 
 # Plataforma de Carreiras Futuras — 2035
 
@@ -35,3 +36,5 @@ O site explora como a tecnologia e as competências humanas se complementam na c
 - **Larissa Vicenzi RM566506** 
 - **Luana Gomes Silva RM563284** 
 - **Melyssa Santos RM564268**  
+
+
