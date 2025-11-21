@@ -14,29 +14,36 @@
     --color-Cinza: #D9D9D9;
 }
 
+/* -------------------------------------------------- Backgrounds gerais -------------------------------------------------- */
+
 .hero {
     background-image: url('./imgs/bg.jpeg');
     background-size: cover;
     background-position: center;
 }
 
-/* Remove totalmente a barra de scroll */
+.cardImg {
+    background-size: cover;
+    background-position: center;
+}
+
+/* -------------------------------------------------- Controle da scrollbar invisível -------------------------------------------------- */
+
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
 .no-scrollbar {
     -ms-overflow-style: none;
-    /* IE e Edge */
     scrollbar-width: none;
-    /* Firefox */
 }
 
-/* Faz o conteúdo ocupar o espaço da scrollbar escondida */
 .scroll-fill {
     width: calc(100% + var(--scrollbar-width, 0px));
     margin-right: calc(var(--scrollbar-width, 0px) * -1);
 }
+
+/* -------------------------------------------------- Cortes decorativos nos cantos -------------------------------------------------- */
 
 .cut-top-left::before {
     content: "";
@@ -44,12 +51,9 @@
     top: 0;
     left: 0;
     width: 40px;
-    /* tamanho do corte */
     height: 40px;
     border-top-left-radius: 1rem;
-    /* igual ao rounded-2xl */
     background: white;
-    /* cor do fundo que cria o corte */
 }
 
 .cut-top-right::before {
@@ -85,6 +89,8 @@
     background: white;
 }
 
+/* -------------------------------------------------- Reseta ícones de summary dos detalhes -------------------------------------------------- */
+
 details>summary {
     list-style: none;
 }
@@ -93,39 +99,26 @@ details>summary::-webkit-details-marker {
     display: none;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+/* -------------------------------------------------- Estrutura geral do Bento Cards -------------------------------------------------- */
 
 .bento-card-with-lines {
     position: relative;
     overflow: visible;
-    /* Permite que o pseudo-elemento se estenda para a borda */
     z-index: 10;
-    /* Garante que o card fique por cima */
 }
 
-/* Variáveis para controle de estilo */
+/* -------------------------------------------------- Variáveis gerais -------------------------------------------------- */
+
 :root {
     --line-color: #AAAAAA;
-    /* Cinza claro mais escuro para o padrão (SM) */
     --line-thickness: 4px;
-    /* Espessura base para SM */
     --line-offset: 0px;
 }
 
-/* ---------------------------------------------------------------------- */
-/* Estilos Mobile-First (SM - Padrão) */
-/* ---------------------------------------------------------------------- */
+/* -------------------------------------------------- Mobile First -------------------------------------------------- */
 
-/* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
+/* Card 1 (superior) */
 .card-1-lines::before {
-    /* Superior Esquerdo */
     content: '';
     position: absolute;
     top: var(--line-offset);
@@ -139,10 +132,8 @@ details>summary::-webkit-details-marker {
     pointer-events: none;
 }
 
-
-/* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
+/* Card 3 (alto) */
 .card-3-lines::before {
-    /* Superior Direito */
     content: '';
     position: absolute;
     top: var(--line-offset);
@@ -157,7 +148,6 @@ details>summary::-webkit-details-marker {
 }
 
 .card-3-lines::after {
-    /* Inferior Esquerdo */
     content: '';
     position: absolute;
     bottom: var(--line-offset);
@@ -171,9 +161,8 @@ details>summary::-webkit-details-marker {
     pointer-events: none;
 }
 
-/* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
+/* Card 4 */
 .card-4-lines::after {
-    /* Inferior Direito */
     content: '';
     position: absolute;
     bottom: var(--line-offset);
@@ -187,9 +176,8 @@ details>summary::-webkit-details-marker {
     pointer-events: none;
 }
 
-/* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
+/* Card 5 */
 .card-5-lines::after {
-    /* Inferior Esquerdo */
     content: '';
     position: absolute;
     top: var(--line-offset);
@@ -203,116 +191,100 @@ details>summary::-webkit-details-marker {
     pointer-events: none;
 }
 
-/* ---------------------------------------------------------------------- */
-/* Ajustes para telas Médias (MD: 768px) */
-/* ---------------------------------------------------------------------- */
+/* -------------------------------------------------- Ajustes para MD -------------------------------------------------- */
+
 @media (min-width: 768px) {
     :root {
         --line-thickness: 5px;
         --line-color: #AAAAAA;
-        /* Cinza para MD */
     }
 
-    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
     .card-1-lines::before,
     .card-1-lines::after {
         width: 70px;
         height: 100px;
     }
 
-    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
     .card-3-lines::before,
     .card-3-lines::after {
         width: 100px;
         height: 100px;
     }
 
-    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
     .card-4-lines::after {
         width: 150px;
         height: 50px;
     }
 
-    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
     .card-5-lines::after {
         width: 70px;
         height: 70px;
     }
 }
 
-/* ---------------------------------------------------------------------- */
-/* Ajustes para telas Grandes (LG: 1024px) */
-/* ---------------------------------------------------------------------- */
+/* -------------------------------------------------- Ajustes para LG -------------------------------------------------- */
+
 @media (min-width: 1024px) {
     :root {
         --line-thickness: 6px;
         --line-color: #AAAAAA;
-        /* Cinza para LG */
     }
 
-    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
     .card-1-lines::before,
     .card-1-lines::after {
         width: 80px;
         height: 120px;
     }
 
-    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
     .card-3-lines::before,
     .card-3-lines::after {
         width: 120px;
         height: 120px;
     }
 
-    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
     .card-4-lines::after {
         width: 200px;
         height: 60px;
     }
 
-    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
     .card-5-lines::after {
         width: 80px;
         height: 80px;
     }
 }
 
-/* ---------------------------------------------------------------------- */
-/* Ajustes para telas Extra Grandes (XL: 1280px) */
-/* ---------------------------------------------------------------------- */
+/* -------------------------------------------------- Ajustes para XL -------------------------------------------------- */
+
 @media (min-width: 1280px) {
     :root {
         --line-thickness: 7px;
         --line-color: #AAAAAA;
-        /* Branco para XL (o normal) */
     }
 
-    /* CARD 1 (Título) - Superior Esquerdo e Superior Direito */
     .card-1-lines::before,
     .card-1-lines::after {
         width: 100px;
         height: 170px;
     }
 
-    /* CARD 3 (Alto) - Superior Direito e Inferior Esquerdo */
     .card-3-lines::before,
     .card-3-lines::after {
         width: 150px;
         height: 175px;
     }
 
-    /* CARD 4 (Otimizar Roxo) - Apenas Inferior Direito */
     .card-4-lines::after {
         width: 250px;
         height: 75px;
     }
 
-    /* CARD 5 (Otimizar Azul) - Apenas Inferior Esquerdo */
     .card-5-lines::after {
         width: 100px;
         height: 100px;
     }
 }
+
+/* -------------------------------------------------- Sistema de Flip Card -------------------------------------------------- */
 
 .flip-card {
     perspective: 1200px;
@@ -337,14 +309,58 @@ details>summary::-webkit-details-marker {
     transform: rotateY(180deg);
 }
 
-/* Borda translúcida igual ao estilo do Figma */
-.card-box {
-    background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(4px);
+/* -------------------------------------------------- Floating Words: layout base -------------------------------------------------- */
+
+#floating-words {
+    pointer-events: auto;
+    z-index: 0;
 }
 
-a.ativo {
-    background-color: #4c1d95 !important;
-    /* mais escuro */
-    transform: scale(0.97);
+.word-wrapper {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.word-bubble {
+    pointer-events: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+/* -------------------------------------------------- Botão de deletar das palavras -------------------------------------------------- */
+
+.word-delete {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.18s ease;
+    pointer-events: auto;
+    z-index: 9999;
+}
+
+.word-bubble:hover+.word-delete,
+.word-delete:hover {
+    opacity: 1;
+}
+
+/* -------------------------------------------------- Z-index especial para cards -------------------------------------------------- */
+
+.relative-card {
+    z-index: 10;
+    position: relative;
 }

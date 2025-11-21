@@ -34,4 +34,4 @@ O site explora como a tecnologia e as competências humanas se complementam na c
 - **Lucas Buzato Venarusso RM562332**  
 - **Larissa Vicenzi RM566506** 
 - **Luana Gomes Silva RM563284** 
-- **Melyssa Silva RM564268**  
+- **Melyssa Santos RM564268**  

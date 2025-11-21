@@ -1,11 +1,8 @@
-// NÃO IMPORTA mais o array local
-// import { carreiras } from "./arrayCardsGs.js";
-
 const cardsContainer = document.querySelector("#cards-container");
 const categoriaBtns = document.querySelectorAll("#carreiras-section a");
 
 let categoriaAtiva = null;
-let listaCarreiras = [];  // <-- Agora vem da API
+let listaCarreiras = []; 
 
 // ================= CRIAR CARD =================
 function criarCard(card) {
